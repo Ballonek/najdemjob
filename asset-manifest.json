@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/najdemjob/static/css/main.fc85adfc.css",
-    "main.js": "/najdemjob/static/js/main.eeb6cc86.js",
+    "main.js": "/najdemjob/static/js/main.1fd77206.js",
     "static/js/787.2810c45c.chunk.js": "/najdemjob/static/js/787.2810c45c.chunk.js",
     "static/media/background.png": "/najdemjob/static/media/background.10c9adc919a67ec06efd.png",
     "static/media/business.jpg": "/najdemjob/static/media/business.218470b6b98fe81f8344.jpg",
@@ -11,11 +11,11 @@
     "static/media/logow.png": "/najdemjob/static/media/logow.00d60716a81503dd53e7.png",
     "index.html": "/najdemjob/index.html",
     "main.fc85adfc.css.map": "/najdemjob/static/css/main.fc85adfc.css.map",
-    "main.eeb6cc86.js.map": "/najdemjob/static/js/main.eeb6cc86.js.map",
+    "main.1fd77206.js.map": "/najdemjob/static/js/main.1fd77206.js.map",
     "787.2810c45c.chunk.js.map": "/najdemjob/static/js/787.2810c45c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fc85adfc.css",
-    "static/js/main.eeb6cc86.js"
+    "static/js/main.1fd77206.js"
   ]
 }
