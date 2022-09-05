@@ -25,7 +25,10 @@ function App() {
         },
         '21h7DxHbI5IbHbH2E'
       )
-      .then((r) => console.log(r))
+      .then((r) => {
+        methods.reset();
+        console.log(r);
+      })
       .catch((er) => console.log(er));
   };
   return (
@@ -73,7 +76,7 @@ function App() {
               <h2 id='jobs'>Volné pozice</h2>
               <div className='positions_left'>
                 <div>
-                  <img src={require('./assets/1.jpg')} />
+                  <img src={require('./assets/1.jpg')} alt='img 1' />
                 </div>
                 <div>
                   <h3>Account Manager</h3>
@@ -164,12 +167,12 @@ function App() {
                   </p>
                 </div>
                 <div>
-                  <img src={require('./assets/2.jpg')} />
+                  <img src={require('./assets/2.jpg')} alt='img 1' />
                 </div>
               </div>
               <div className='positions_left'>
                 <div>
-                  <img src={require('./assets/3.jpg')} />
+                  <img src={require('./assets/3.jpg')} alt='img 2' />
                 </div>
                 <div>
                   <h3>Pracovník klientského centra</h3>
@@ -313,7 +316,7 @@ function App() {
           <div className='container footer'>
             <div>Všechny práva jsou vyhrazeny společnosti Najdem JOB.</div>
             <a href='#'>
-              <img src={logow} />
+              <img src={logow} alt='logo' />
             </a>
           </div>
         </footer>
