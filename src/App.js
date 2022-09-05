@@ -7,10 +7,26 @@ import logow from './assets/logow.png';
 
 function App() {
   const methods = useForm();
+  const {
+    formState: { errors },
+  } = methods;
   const [file, setFile] = useState();
-
   const sendMail = (e) => {
-    emailjs.sendForm('id', 'templateId', e, 'publickey');
+    const { email, name, surname, phone } = e;
+    emailjs
+      .send(
+        'service_edl5tao',
+        'template_a9kmrqn',
+        {
+          email,
+          name,
+          surname,
+          phone,
+        },
+        '21h7DxHbI5IbHbH2E'
+      )
+      .then((r) => console.log(r))
+      .catch((er) => console.log(er));
   };
   return (
     <FormProvider {...methods}>
@@ -257,7 +273,7 @@ function App() {
               práce jako dělanou přesně pro Vás.
             </p>
 
-            <form>
+            <form onSubmit={methods.handleSubmit(sendMail)}>
               <div className='formular_side'>
                 <input {...methods.register('name', { required: true })} placeholder='Jméno' name='name' />
                 <input {...methods.register('phone', { required: true })} placeholder='Telefon' name='phone' />
@@ -284,7 +300,7 @@ function App() {
                   <br />
                 </div>
                 <div className='formular_btn'>
-                  <button className='btn primary send' onClick={methods.handleSubmit(sendMail)}>
+                  <button className='btn primary send' type='submit'>
                     Odeslat
                   </button>
                 </div>
