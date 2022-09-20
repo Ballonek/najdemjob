@@ -1,9 +1,36 @@
 import emailjs from '@emailjs/browser';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { animated, config, useSpring } from 'react-spring';
 import './App.css';
 import logo from './assets/logo.png';
 import logow from './assets/logow.png';
+
+const Cislo = ({ cislo, firstText, secondText }) => {
+  const { number } = useSpring({
+    reset: false,
+    from: { number: 0 },
+    number: cislo,
+    delay: 100,
+    config: config.molasses,
+  });
+
+  const num = number.to((n) => n.toFixed(0));
+
+  return (
+    <div>
+      <h4>
+        <animated.span>{num}</animated.span>
+        <span>,-</span>
+      </h4>
+      <p>
+        {firstText}
+        <br />
+        {secondText}
+      </p>
+    </div>
+  );
+};
 
 function App() {
   const methods = useForm();
@@ -228,38 +255,10 @@ function App() {
         <div className='banner_wrapper'>
           <div className='container'>
             <div className='banner'>
-              <div>
-                <h4>1252</h4>
-                <p>
-                  zprostředkovaných
-                  <br />
-                  míst
-                </p>
-              </div>
-              <div>
-                <h4>127</h4>
-                <p>
-                  spokojených
-                  <br />
-                  firem
-                </p>
-              </div>
-              <div>
-                <h4>39550,-</h4>
-                <p>
-                  mzda
-                  <br />
-                  uchazečů
-                </p>
-              </div>
-              <div>
-                <h4>45420,-</h4>
-                <p>
-                  mzda
-                  <br />
-                  po zapracování
-                </p>
-              </div>
+              <Cislo cislo={1252} firstText='zprostředkovaných' secondText='míst' />
+              <Cislo cislo={127} firstText='spokojených' secondText='firem' />
+              <Cislo cislo={39550} firstText='mzda' secondText='uchazečů' />
+              <Cislo cislo={45420} firstText='mzda' secondText='po zapracování' />
             </div>
           </div>
         </div>
