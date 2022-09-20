@@ -34,9 +34,9 @@ function App() {
   return (
     <FormProvider {...methods}>
       <div className='App'>
-        <header>
+        <header id='home'>
           <div className='container nav'>
-            <a href='#'>
+            <a href='#home'>
               <img src={logo} alt='najdem_job' />
             </a>
             <div className='nav_btn'>
@@ -46,7 +46,6 @@ function App() {
             </div>
           </div>
         </header>
-
         <div className='hero_image'>
           <div className='container hero_container'>
             <h1 className='hero_title'>
@@ -69,7 +68,6 @@ function App() {
             </ul>
           </div>
         </div>
-
         <div className='positions_wrapper'>
           <div className='container'>
             <div className='positions'>
@@ -227,7 +225,6 @@ function App() {
             </div>
           </div>
         </div>
-
         <div className='banner_wrapper'>
           <div className='container'>
             <div className='banner'>
@@ -266,7 +263,6 @@ function App() {
             </div>
           </div>
         </div>
-
         <div className='container'>
           <div className='formular'>
             <h2>Formulář pro zaslání životopisu</h2>
@@ -293,7 +289,7 @@ function App() {
                   </label>
                 </div>
               </div>
-              <div className='formular_side'>
+              <div className='formular_side reverse'>
                 <input {...methods.register('surname', { required: true })} placeholder='Příjímění' name='surname' />
                 <input {...methods.register('email', { required: true })} placeholder='E-mail' name='email' />
                 <div>
@@ -311,13 +307,14 @@ function App() {
             </form>
           </div>
         </div>
-
-        <footer>
-          <div className='container footer'>
-            <div>Všechny práva jsou vyhrazeny společnosti Najdem JOB.</div>
-            <a href='#'>
-              <img src={logow} alt='logo' />
-            </a>
+        <footer className='footer'>
+          <div className='container wrap'>
+            <div className='info'>Všechny práva jsou vyhrazeny společnosti Najdem JOB.</div>
+            <div className='img'>
+              <a href='#'>
+                <img src={logow} alt='logo' />
+              </a>
+            </div>
           </div>
         </footer>
       </div>

@@ -6,8 +6,101 @@
   --white: #ffffff;
 }
 
+img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 5px !important;
+  }
+  .nav a {
+    margin-left: 10px;
+  }
+  .nav .nav_btn {
+    margin-right: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    width: 168px;
+  }
+
+  .hero_title {
+    max-width: 300px;
+    font-size: 32px;
+    line-height: 33px;
+    padding-left: 0 !important;
+  }
+  .positions {
+    padding: 10px !important;
+  }
+
+  .positions_left {
+    flex-direction: column !important;
+  }
+
+  .positions_right {
+    flex-direction: column-reverse !important;
+  }
+
+  .positions_left div:first-of-type {
+    width: 100vw !important;
+  }
+
+  .positions_left div:last-of-type {
+    width: 100% !important;
+    padding-left: 0px !important;
+  }
+
+  .positions_right div:first-of-type {
+    width: 100% !important;
+    padding-right: 0px !important;
+  }
+
+  .positions_right div:last-of-type {
+    width: 100vw !important;
+  }
+
+  h4 {
+    font-size: 40px !important;
+
+    line-height: 41px !important;
+  }
+
+  .banner {
+    flex-direction: column !important;
+    padding: 50px 0 40px !important;
+  }
+
+  .banner div {
+    padding: 20px 0 !important;
+  }
+
+  form {
+    flex-direction: column !important;
+  }
+
+  .formular_side:last-child {
+    padding-left: 0px !important;
+  }
+
+  .formular h2::after {
+    top: 88px !important;
+  }
+  .formular_input {
+    padding: 5px 0;
+  }
+}
+
 html {
   scroll-behavior: smooth;
+}
+.wrap {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 /*general*/
@@ -34,7 +127,6 @@ p {
 
 .container {
   max-width: 1170px;
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 30px;
@@ -178,7 +270,7 @@ header {
   position: absolute;
   padding-left: 35px;
   bottom: 61px;
-  width: 790px;
+  width: 768px;
   height: 147px;
   background: linear-gradient(to right, var(--primary) 60%, #1176b500 90%);
   z-index: 3;
@@ -386,9 +478,6 @@ footer {
 
 .footer div {
   flex: 0 1 auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .footer a {
