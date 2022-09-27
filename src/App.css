@@ -255,6 +255,22 @@ header {
   background-position: center;
   background-size: cover;
   position: relative;
+  animation: slideBg 10s linear infinite 0s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slideBg {
+  0% {
+    background-image: url(./assets/business2.jpg);
+  }
+
+  50% {
+    background-image: url(./assets/business.jpg);
+  }
+
+  100% {
+    background-image: url(./assets/business2.jpg);
+  }
 }
 
 .hero_image:before {
