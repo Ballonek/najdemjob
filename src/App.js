@@ -1,12 +1,12 @@
 import emailjs from '@emailjs/browser';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { animated, config, useSpring } from 'react-spring';
 import './App.css';
 import logo from './assets/logo.png';
 import logow from './assets/logow.png';
 
-const Cislo = ({ cislo, firstText, secondText }) => {
+const Cislo = ({ cislo, firstText, secondText, isPrice }) => {
   const { number } = useSpring({
     reset: false,
     from: { number: 0 },
@@ -21,7 +21,7 @@ const Cislo = ({ cislo, firstText, secondText }) => {
     <div>
       <h4>
         <animated.span>{num}</animated.span>
-        <span>,-</span>
+        {isPrice && <span>,-</span>}
       </h4>
       <p>
         {firstText}
@@ -117,7 +117,7 @@ function App() {
                   </p>
                   <p>
                     <strong>Pracovní náplň:</strong>
-                    <br />- Práce v nové, moderní a klimatizované kanceláří
+                    <br />- Práce v nové, moderní a klimatizované kanceláři
                     <br />
                     - Online a telefonická komunikace s našimi klienty
                     <br />
@@ -139,7 +139,7 @@ function App() {
                   </p>
                   <p>
                     <strong>Finanční ohodnocení:</strong>
-                    <br />– 30 000 ,- Kč
+                    <br />– 30 000 Kč
                   </p>
                 </div>
               </div>
@@ -154,7 +154,7 @@ function App() {
                     - Nevnímáš problém jako překážku, ale jako výzvu, která posune dál tebe i firmu
                     <br />
                     - Do všeho se pouštíš na 100 % a umíš dotahovat věci do konce
-                    <br />- Pozice je vhodná i pro absolvent
+                    <br />- Pozice je vhodná i pro absolventy
                   </p>
                   <p>
                     <strong>Pracovní náplň:</strong>
@@ -165,7 +165,7 @@ function App() {
                     <br />
                     - Povedeš skupinu zkušených obchodníků
                     <br />
-                    - Pracovat v týmu – spolupráce se zkušenými kolegy
+                    - Pracovat v týmu a spolupracovat se zkušenými kolegy
                     <br />
                   </p>
                   <p>
@@ -188,7 +188,7 @@ function App() {
                   </p>
                   <p>
                     <strong>Finanční ohodnocení:</strong>
-                    <br />- 30 000,- Kč
+                    <br />- 30 000 Kč
                   </p>
                 </div>
                 <div>
@@ -245,7 +245,7 @@ function App() {
                   </p>
                   <p>
                     <strong>Finanční ohodnocení:</strong>
-                    <br />- 30 000,- Kč
+                    <br />- 30 000 Kč
                   </p>
                 </div>
               </div>
@@ -257,19 +257,15 @@ function App() {
             <div className='banner'>
               <Cislo cislo={1252} firstText='zprostředkovaných' secondText='míst' />
               <Cislo cislo={127} firstText='spokojených' secondText='firem' />
-              <Cislo cislo={39550} firstText='mzda' secondText='uchazečů' />
-              <Cislo cislo={45420} firstText='mzda' secondText='po zapracování' />
+              <Cislo cislo={39550} firstText='mzda' secondText='uchazečů' isPrice />
+              <Cislo cislo={74350} firstText='mzda' secondText='po zapracování' isPrice />
             </div>
           </div>
         </div>
         <div className='container'>
           <div className='formular'>
             <h2>Formulář pro zaslání životopisu</h2>
-            <p>
-              Stačí nám zaslat životopis a my Vám zajistíme tu nejlepší možnou nabídku
-              <br />
-              práce jako dělanou přesně pro Vás.
-            </p>
+            <p>Stačí nám zaslat životopis a my Vám zajistíme tu nejlepší možnou nabídku.</p>
 
             <form onSubmit={methods.handleSubmit(sendMail)}>
               <div className='formular_side'>
@@ -308,7 +304,7 @@ function App() {
         </div>
         <footer className='footer'>
           <div className='container wrap'>
-            <div className='info'>Všechny práva jsou vyhrazeny společnosti Najdem JOB.</div>
+            <div className='info'>Všechny práva jsou vyhrazeny společností Najdem JOB.</div>
             <div className='img'>
               <a href='#'>
                 <img src={logow} alt='logo' />
