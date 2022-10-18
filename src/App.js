@@ -1,24 +1,65 @@
 import emailjs from '@emailjs/browser';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { animated, config, useSpring } from 'react-spring';
 import './App.css';
 import logo from './assets/logo.png';
 import logow from './assets/logow.png';
 
+function useIntersectionObserver(elementRef, { threshold = 0, root = null, rootMargin = '0%', freezeOnceVisible = false }) {
+  const [entry, setEntry] = useState();
+
+  const frozen = entry?.isIntersecting && freezeOnceVisible;
+
+  const updateEntry = ([entry]) => {
+    setEntry(entry);
+  };
+
+  useEffect(() => {
+    const node = elementRef?.current;
+    const hasIOSupport = !!window.IntersectionObserver;
+
+    if (!hasIOSupport || frozen || !node) return;
+
+    const observerParams = { threshold, root, rootMargin };
+    const observer = new IntersectionObserver(updateEntry, observerParams);
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [elementRef, threshold, root, rootMargin, frozen]);
+
+  return entry;
+}
+
 const Cislo = ({ cislo, firstText, secondText, isPrice }) => {
+  const ref = useRef(null);
   const { number } = useSpring({
     reset: false,
     from: { number: 0 },
     number: cislo,
-    delay: 100,
-    config: config.molasses,
+    delay: 200,
+    config: { duration: 1000 },
+    pause: true,
   });
+  useEffect(() => {
+    const entry = ref.current;
+    const observer = new IntersectionObserver((entries) => {
+      console.log(entries);
+      if (entries[0].isIntersecting) {
+        number.reset();
+        number.resume();
+        observer.unobserve(entry);
+      }
+    });
+    observer.observe(entry);
+    return () => observer.unobserve(entry);
+  }, []);
 
   const num = number.to((n) => n.toFixed(0));
 
   return (
-    <div>
+    <div ref={ref}>
       <h4>
         <animated.span>{num}</animated.span>
         {isPrice && <span>,-</span>}
@@ -91,7 +132,7 @@ function App() {
               <li>Vysoké fixní ohodnocení – Dostanete za svou práci férově zaplaceno.</li>
               <li>Bohaté firemní benefity – Kromě finančního ohodnocení jsou samozřejmostí také benefity, které ocení každý.</li>
               <li>Finanční bonusy – Motivační příplatky za kvalitně odvedenou práci pro každého.</li>
-              <li>Smlouva na hlavní pracovní poměr – Získejte veškeré výhody spojené s hlavním pracovním poměrem.</li>
+              <li>Smlouva na hlavní pracovní poměr nebo IČO – Získejte veškeré výhody spojené s hlavním pracovním poměrem.</li>
             </ul>
           </div>
         </div>
@@ -188,7 +229,7 @@ function App() {
                   </p>
                   <p>
                     <strong>Finanční ohodnocení:</strong>
-                    <br />- 30 000 Kč
+                    <br />- 50 000 Kč
                   </p>
                 </div>
                 <div>
