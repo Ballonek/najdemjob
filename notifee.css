@@ -375,6 +375,7 @@
 
 #notifee-link img {
     height: 12px !important;
+    width: auto;
     vertical-align: sub;
     padding-left: 2px;
     display: inline;
