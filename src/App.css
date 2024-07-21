@@ -697,6 +697,7 @@ input[type="file" i] {
   .footer-contact-support-item a {
     font-size: 14px;
     padding: 4px 5px;
+    width: 80%;
   }
 
   .footer-contact-support {
@@ -709,7 +710,12 @@ input[type="file" i] {
     justify-content: center;
   }
 
+  .footer-contact-logo img {
+    width: 80%;
+    height: 80%;
+  }
+
   .footer-contact-logo div {
-    padding: 40px 15px;
+    padding: 30px 15px;
   }
 }
