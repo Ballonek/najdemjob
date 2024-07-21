@@ -517,6 +517,7 @@ input[type="file" i] {
   font-size: 32px;
   font-weight: 700;
   margin: 0;
+  text-align: center;
 }
 
 .footer-contact {
@@ -651,4 +652,64 @@ input[type="file" i] {
   grid-area: footer-contact-footer;
   display: flex;
   justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-grid {
+    grid-template-areas:
+      "footer-heading"
+      "footer-contact"
+      "footer-contact-heading"
+      "footer-contact-content"
+      "footer-contact-support"
+      "footer-contact-logo"
+      "footer-contact-footer";
+
+    grid-template-columns: 1fr;
+  }
+
+  .footer-heading h4 {
+    font-size: 22px !important;
+  }
+
+  .footer-contact a {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+
+  .footer-contact-heading h5 {
+    font-size: 20px;
+    padding: 20px 4px;
+  }
+
+  .footer-contact-content {
+    border-right: none;
+    padding: 10px 4px;
+  }
+
+  .footer-contact-support-item {
+    padding-left: 0;
+    padding: 0 4px;
+
+    grid-template-columns: 3fr 4fr;
+  }
+
+  .footer-contact-support-item a {
+    font-size: 14px;
+    padding: 4px 5px;
+  }
+
+  .footer-contact-support {
+    padding: 0 0 20px 0;
+  }
+
+  .footer-contact-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-contact-logo div {
+    padding: 40px 15px;
+  }
 }
