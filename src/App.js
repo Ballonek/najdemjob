@@ -490,7 +490,9 @@ function App() {
                 <p>Všechny práva jsou vyhrazeny společností Najdem JOB.</p>
               </div>
               <div>
-                <p>Zásady zpracování osobních údajů</p>
+                <a href="gdpr.pdf" target="_blank">
+                  Zásady zpracování osobních údajů
+                </a>
               </div>
             </div>
           </div>

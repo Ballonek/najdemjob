@@ -654,6 +654,13 @@ input[type="file" i] {
   justify-content: space-evenly;
 }
 
+.footer-contact-footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 250ms;
+}
+
 @media only screen and (max-width: 768px) {
   .footer-grid {
     grid-template-areas:
